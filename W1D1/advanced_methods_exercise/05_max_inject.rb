@@ -2,6 +2,7 @@
 # the largest number. Solve this using the built-in inject.
 
 def max_inject(*arr) 
+    #why splat? 
     arr.inject do |acc, ele| 
         if ele > acc 
             ele
