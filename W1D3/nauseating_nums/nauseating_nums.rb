@@ -46,7 +46,12 @@ def rampant_repeats(string, hash)
     new_str
 end
 
-p rampant_repeats('taco', {'a'=>3, 'c'=>2})             # 'taaacco'
-p rampant_repeats('feverish', {'e'=>2, 'f'=>4, 's'=>3}) # 'ffffeeveerisssh'
-p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
-p rampant_repeats('faarm', {'e'=>3, 'a'=>2})            # 'faaaarm'
+# p rampant_repeats('taco', {'a'=>3, 'c'=>2})             # 'taaacco'
+# p rampant_repeats('feverish', {'e'=>2, 'f'=>4, 's'=>3}) # 'ffffeeveerisssh'
+# p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
+# p rampant_repeats('faarm', {'e'=>3, 'a'=>2})            # 'faaaarm'
+
+def perfect_square 
+    sqrt = Math.sqrt(num).to_i 
+    sqrt * sqrt == num
+end
