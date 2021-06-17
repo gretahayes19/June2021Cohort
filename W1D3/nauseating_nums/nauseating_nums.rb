@@ -58,6 +58,11 @@ def perfect_square
 end
 
 ##PHASE 2
+##PHASE 2
+##PHASE 2
+##PHASE 2
+##PHASE 2
+##PHASE 2
 
 
 
@@ -144,6 +149,14 @@ end
 # p tribonacci_number(7)  # 24
 # p tribonacci_number(11) # 274
 
+
+
+#PHASE 3
+#PHASE 3
+#PHASE 3
+#PHASE 3
+
+
 require "byebug"
 def matrix_addition_reloaded(*matricies)
     matrix = matricies.first
@@ -158,8 +171,14 @@ def matrix_addition_reloaded(*matricies)
     end
 end
 
-matrix_a = [[2,5], [4,7]]
-matrix_b = [[9,1], [3,0]]
+matrix_a = [
+    [2,5], 
+    [4,7]
+        ]
+matrix_b = [
+    [9,1], 
+    [3,0]
+    ]
 matrix_c = [[-1,0], [0,-1]]
 matrix_d = [[2, -5], [7, 10], [0, 1]]
 matrix_e = [[0 , 0], [12, 4], [6,  3]]
@@ -188,4 +207,95 @@ def squaragonal(grid)
     return true if diag_two.uniq.length == 1
 
     false
+end
+
+
+
+
+def adjacent_sums(arr)
+    sums = []
+    (0...arr.length-1).each do |i|
+        sums << arr[i] + arr[i + 1]
+    end
+    sums
+end
+
+def pascals_triangle(n)
+    triangle = [[1]]
+    while triangle.length < n
+        level_above = triangle.last
+        next_level = [1]
+        next_level += adjacent_sums(level_above)
+        next_level << 1
+        triangle << next_level
+    end
+    triangle
+end
+
+# p pascals_triangle(5)
+
+
+##PHASE 4
+##PHASE 4
+##PHASE 4
+##PHASE 4
+##PHASE 4
+
+def prime?(num)
+    return  false if num < 2
+    (2...num).none? { |i| num % i == 0 }
+end
+
+def mersenne_prime(n)
+    x = -1
+    count = 0
+    while count < n
+        x += 1
+        candidate = 2**x - 1
+        count += 1 if prime?(candidate)
+    end
+    2**x - 1
+end
+
+# p mersenne_prime(1) # 3
+# p mersenne_prime(2) # 7
+# p mersenne_prime(3) # 31
+# p mersenne_prime(4) # 127
+# p mersenne_prime(6) # 131071
+
+def triangular_sequence(n)
+    seq = []
+    i = 1
+    while i <= n
+        seq << (i * (i + 1)) / 2
+        i += 1
+    end
+    seq
+end
+
+def triangular_word?(word)
+    alpha = ('a'..'z').to_a
+    value = word
+        .split('')
+        .map { |char| alpha.index(char) + 1 }
+        .sum
+    triangular_nums = triangular_sequence(value)
+    triangular_nums.include?(value)
+end
+
+
+
+def collapse(nums)
+    (0...nums.length - 1).each do |i|
+        if nums[i] + 1 == nums[i + 1] || nums[i] == nums[i + 1] + 1
+            return nums[0...i] + nums[i + 2..-1]
+        end
+    end
+
+    nums
+end
+
+def consecutive_collapse(numbers)
+    numbers.each { numbers = collapse(numbers) }
+    numbers
 end
