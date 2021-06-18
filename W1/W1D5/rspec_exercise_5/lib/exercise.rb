@@ -1,12 +1,18 @@
+require "byebug" 
 def zip(*arrs)
     len = arrs.first.length
 
     (0...len).map do |i|
-        arrs.map { |array| array[i] }
+        debugger
+        arrs.map do |array| 
+            debugger
+            array[i] 
+        end
     end
 
-
 end
+
+p zip([1, 2, 3], ["a", "b", "c"], [ 4, 5, 6])
 
 def prizz_proc(array, prc1, prc2)
     array.select { |ele| ele if (prc1.call(ele) || prc2.call(ele)) && !(prc1.call(ele) && prc2.call(ele))}
