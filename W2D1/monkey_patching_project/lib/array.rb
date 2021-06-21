@@ -61,3 +61,11 @@ class Array
     transposed
   end
 end
+
+
+Array.new()
+arr = [1,2,23,4]
+
+arr.each do |ele|
+    skgdjdskgjdslg
+end

@@ -50,10 +50,10 @@ class Bootcamp
 
     def add_grade(student, grade)
         if self.enrolled?(student)
-        @grades[student] << grade
-        return true
+            @grades[student] << grade
+            return true
         else
-        return false
+            return false
         end
     end
 
@@ -67,3 +67,4 @@ class Bootcamp
     end
 
 end
+
